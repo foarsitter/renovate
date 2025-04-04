@@ -517,9 +517,11 @@ But if you are self-hosting Renovate and:
 
 Then you must install the Python keyring package and the keyrings.envvars package into your self-hosted environment.
 
-### poetry
+### poetry or uv
 
 For every Poetry source, a `hostRules` search is done and then any found credentials are added to env like `POETRY_HTTP_BASIC_X_USERNAME` and `POETRY_HTTP_BASIC_X_PASSWORD`, where `X` represents the normalized name of the source in `pyproject.toml`.
+
+For uv, the same applies but with `UV_INDEX_X_USERNAME` and `UV_INDEX_X_PASSWORD` for each `[[tool.uv.index]]` defined in `pyproject.toml`, where `X` is the name of the index.
 
 ```js
 module.exports = {
